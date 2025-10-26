@@ -14,12 +14,20 @@ class Explosion extends Base {
     }
 
     public Update(): void {
+
+
+
         if (this.m_frame < 16) {
-            this.m_frame += 1;
-        }
-        else {
-            this.m_animationComplete = true;
-        }
+
+
+            if (this.m_frame < 16 && (this.m_animDelay += 0.1) > 0.3) {
+
+
+                this.m_animDelay = 0;
+
+                this.m_frame += 1;
+
+            }
     }
 
     public Draw(ctx: CanvasRenderingContext2D): void {
