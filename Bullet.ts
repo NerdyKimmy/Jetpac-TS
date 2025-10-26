@@ -1,4 +1,4 @@
-﻿﻿import Base = require("./TexturedObject");
+﻿import Base = require("./TexturedObject");
 import Rectangle = require("./Rectangle");
 
 class Bullet extends Base {
