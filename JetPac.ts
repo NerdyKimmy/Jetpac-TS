@@ -1,4 +1,4 @@
-﻿import Bonus = require("./Bonus");
+﻿﻿import Bonus = require("./Bonus");
 import Bullet = require("./Bullet");
 import Controls = require("./Input");
 import Explosion = require("./Explosion");

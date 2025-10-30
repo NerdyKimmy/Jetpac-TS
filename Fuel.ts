@@ -14,7 +14,7 @@ class Fuel extends Base {
 
     constructor(texture: HTMLImageElement, floor: Rectangle, ledge1: Rectangle, ledge2: Rectangle, ledge3: Rectangle) {
         super(texture);
-        this.m_x = Math.floor(Math.random() * 760);
+        this.m_x = Math.min(Math.floor(Math.random() * 760), floor.Width - texture.width);
         this.m_y = -30;
         this.m_width = texture.width;
         this.m_height = texture.height;
@@ -38,7 +38,7 @@ class Fuel extends Base {
             this.m_y += 1;
         }
 
-        if (collided == true && this.m_x != 430) {
+        if (collided && this.m_x != 430) {
             this.m_x = x;
             this.m_y = y + 20;
         }
@@ -62,7 +62,7 @@ class Fuel extends Base {
         ctx.drawImage(this.m_texture, this.m_x, this.m_y);
     }
 
-    public get Rectangle() {
+    public get Rectangle(): Rectangle {
         return new Rectangle(this.m_x, this.m_y, this.m_width, this.m_height);
     }
 
@@ -72,6 +72,7 @@ class Fuel extends Base {
 
     public set ResetLevel(value: number) {
         this.fuelLevel = value;
+        this.fuelCellLanded = false;
     }
 }
 
